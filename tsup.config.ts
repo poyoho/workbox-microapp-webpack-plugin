@@ -6,7 +6,7 @@ export const tsup = defineConfig([
     clean: true,
     dts: true,
     entry: [
-      'src/*.ts',
+      'src/plugin.ts',
     ],
     format: [
       'esm',
@@ -20,6 +20,25 @@ export const tsup = defineConfig([
       'webpack-sources',
       'workbox-build',
       'webpack',
+    ],
+  },
+  {
+    platform: 'browser',
+    minify: true,
+    splitting: true,
+    clean: true,
+    dts: true,
+    entry: [
+      'src/client.ts',
+    ],
+    target: 'es6',
+    format: [
+      'esm',
+    ],
+    external: [
+      'workbox-core',
+      'workbox-precaching',
+      'workbox-routing',
     ],
   },
 ])

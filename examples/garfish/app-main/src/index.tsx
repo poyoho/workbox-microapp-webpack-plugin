@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom';
 import { GarfishInit } from './garfishInit';
 import RootComponent from './components/root';
-import { registerServiceWorker } from './serviceWorkerRegistration';
+import { registerServiceWorker } from "workbox-microapp-webpack-plugin/client"
+
 const isProduction = process.env.NODE_ENV === 'production';
 
 const render = (_ROOT) => {
