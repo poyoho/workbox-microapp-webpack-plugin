@@ -1,9 +1,10 @@
 const { resolve } = require('node:path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const WorkboxMicroAppPlugin = require('workbox-microapp-webpack-plugin/plugin')
+const { WorkboxMicroSubAppPlugin } = require('workbox-microapp-webpack-plugin/plugin')
 const path = require('path')
+const { generateKey } = require('node:crypto')
 
-const swSrc = path.resolve(__dirname, './src/sw.js');
+const swSrc = path.resolve(__dirname, './src/sw.json');
 
 module.exports = {
   mode: 'development',
@@ -14,7 +15,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin(),
-    new WorkboxMicroAppPlugin.default({
+    new WorkboxMicroSubAppPlugin({
       swSrc,
       dontCacheBustURLsMatching: /\.[0-9a-f]{8}\./,
       maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,

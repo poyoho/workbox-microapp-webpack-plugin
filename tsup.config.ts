@@ -14,7 +14,12 @@ export const tsup = defineConfig([
     ],
     external: [
       'tsup',
-      'workbox-webpack-plugin',
+      'fast-json-stable-stringify',
+      'pretty-bytes',
+      'upath',
+      'webpack-sources',
+      'workbox-build',
+      'webpack',
     ],
   },
 ])
