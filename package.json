@@ -1,0 +1,41 @@
+{
+  "name": "workbox-microapp-webpack-plugin",
+  "type": "module",
+  "version": "0.1.0",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
+  },
+  "exports": {
+    "./*": "./*"
+  },
+  "files": [
+    "dist",
+    "types",
+    "*.d.ts"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch src",
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build",
+    "release": "npx bumpp --commit --tag --push && npm publish"
+  },
+  "dependencies": {
+    "unplugin": "^0.9.5",
+    "workbox-webpack-plugin": "^7.0.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.25.2",
+    "@types/node": "^20.11.7",
+    "eslint": "^8.20.0",
+    "esno": "^0.16.3",
+    "typescript": "^5.3.3",
+    "tsup": "^8.0.1",
+    "bumpp": "^9.3.0"
+  }
+}

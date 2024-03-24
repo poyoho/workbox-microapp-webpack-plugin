@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+dist
+example/README.md
+.nuxt
+.idea
+.svelte-kit/
+examples/nuxt3/pnpm-lock.yaml
