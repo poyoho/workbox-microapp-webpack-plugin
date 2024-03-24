@@ -41,10 +41,7 @@
     "pretty-bytes": "^5.4.1",
     "upath": "^1.2.0",
     "webpack-sources": "^1.4.3",
-    "workbox-build": "7.0.0",
-    "workbox-core": "^7.0.0",
-    "workbox-precaching": "^7.0.0",
-    "workbox-routing": "^7.0.0"
+    "workbox-build": "7.0.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",

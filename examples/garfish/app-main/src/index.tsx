@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom';
 import { GarfishInit } from './garfishInit';
 import RootComponent from './components/root';
+import { registerServiceWorker } from './serviceWorkerRegistration';
 
 const render = (_ROOT) => {
   GarfishInit();
@@ -15,4 +16,6 @@ if ((module as any).hot) {
     const _ROOT = require('./components/root').default;
     render(_ROOT);
   });
+} else {
+  registerServiceWorker();
 }
