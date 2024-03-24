@@ -4,7 +4,7 @@ const { WorkboxMicroSubAppPlugin } = require('workbox-microapp-webpack-plugin/pl
 const path = require('path')
 const { generateKey } = require('node:crypto')
 
-const swSrc = path.resolve(__dirname, './src/sw.json');
+const swSrc = path.resolve(__dirname, './src/sw-precache.json');
 
 module.exports = {
   mode: 'development',
