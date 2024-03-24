@@ -2,6 +2,9 @@ const path = require('path');
 const { DefinePlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { isDevelopment, getPublicPath, getPort } = require('../util');
+const { WorkboxMicroMainAppPlugin } = require('workbox-microapp-webpack-plugin/plugin')
+
+const swSrc = path.resolve(__dirname, './src/sw.js');
 const appName = 'dev/main';
 
 const webpackConfig = {
@@ -89,8 +92,11 @@ const webpackConfig = {
     new DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
-    // 微前端场景下子应用热更新需要关闭 react-fast-refresh, 否则子应用热更新不会生效
-    // isDevelopment && new ReactRefreshWebpackPlugin()
+    new WorkboxMicroMainAppPlugin({
+      swSrc,
+      dontCacheBustURLsMatching: /\.[0-9a-f]{8}\./,
+      maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+    })
   ],
 };
 
