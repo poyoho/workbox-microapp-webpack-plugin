@@ -5,7 +5,7 @@
     "build": "webpack"
   },
   "devDependencies": {
-    "unplugin-pre-exec": "workspace:*",
+    "workbox-microapp-webpack-plugin": "workspace:*",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   }

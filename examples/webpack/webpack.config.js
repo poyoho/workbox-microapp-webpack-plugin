@@ -1,6 +1,9 @@
 const { resolve } = require('node:path')
-const Prefetch = require('unplugin-pre-exec/webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WorkboxMicroAppPlugin = require('workbox-microapp-webpack-plugin/plugin')
+const path = require('path')
+
+const swSrc = path.resolve(__dirname, './src/sw.js');
 
 module.exports = {
   mode: 'development',
@@ -10,7 +13,11 @@ module.exports = {
     filename: 'main.js',
   },
   plugins: [
-    Prefetch.default(),
     new HtmlWebpackPlugin(),
+    new WorkboxMicroAppPlugin.default({
+      swSrc,
+      dontCacheBustURLsMatching: /\.[0-9a-f]{8}\./,
+      maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+    })
   ],
 }
