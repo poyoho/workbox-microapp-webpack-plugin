@@ -1,9 +1,13 @@
 let refreshing = false
 
-export function registerServiceWorker() {
+interface RegisterParams {
+  swLink: string
+}
+
+export function registerServiceWorker({ swLink }: RegisterParams) {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', async () => {
-      const swUrl = '/sw.js'
+      const swUrl = swLink
       navigator.serviceWorker
         .register(swUrl)
         .catch((error) => {

@@ -21,5 +21,7 @@ if ((module as any).hot) {
 }
 
 if (isProduction) {
-  registerServiceWorker();
+  registerServiceWorker({
+    swLink: '/sw.js'
+  });
 }

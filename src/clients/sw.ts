@@ -6,9 +6,7 @@ interface ManifestItem {
   url: string
 }
 
-function mainAppManifest() {
-  const manifest = (self as any).__WB_MANIFEST as ManifestItem[]
-
+function mainAppManifest(manifest: ManifestItem[] = []) {
   const _manifest = manifest.map((item) => {
     const { revision, url } = item
     // html won't be served through cdn, stripe out publicPath
@@ -33,14 +31,18 @@ function fetchSubAppLink(url: string) {
 }
 
 export function bootstrapServiceWorker({
+  manifest,
   subAppsPreCacheList = [],
 }: {
+  manifest: ManifestItem[]
   subAppsPreCacheList?: string[]
 }) {
   clientsClaim()
-  mainAppManifest()
+  console.log('[manifest]', manifest)
+  mainAppManifest(manifest)
   subAppsPreCacheList.forEach((url) => {
     fetchSubAppLink(url).then((res) => {
+      console.log('[sub app]', res)
       precacheAndRoute(res)
     })
   })

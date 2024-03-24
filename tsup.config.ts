@@ -34,6 +34,7 @@ export const tsup = defineConfig([
     target: 'es6',
     format: [
       'esm',
+      'cjs',
     ],
     external: [
       'workbox-core',
