@@ -4,7 +4,7 @@ let refreshing;
 export function registerServiceWorker(config) {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', async () => {
-      const swUrl = '/serviceWorker.js';
+      const swUrl = '/sw.js';
       navigator.serviceWorker
         .register(swUrl)
         .catch((error) => {

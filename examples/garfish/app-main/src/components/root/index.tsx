@@ -75,17 +75,6 @@ const RootComponent = () => {
               );
             })}
 
-          {/* 由于vue2 的 activeWhen 返回的是函数，需要在这里静态注册路由 */}
-          <Route
-            path={`${basename}/vue2/*`}
-            element={<App store={store} />}
-          ></Route>
-
-          <Route
-            path={`${basename}/vue2/about`}
-            element={<App store={store} />}
-          ></Route>
-
           {/* 子应用通过 loadApp 嵌套子应用 */}
           {/* <Route
               path={`${basename}/vue2/loadApp`}
